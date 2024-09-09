@@ -10,7 +10,7 @@ import type { ParseModeFlavor } from 'https://deno.land/x/grammy_parse_mode@1.10
 import { BotContext } from '../types/botContext.ts';
 import { limit } from 'https://deno.land/x/grammy_ratelimiter@v1.2.0/mod.ts';
 import { autoRetry } from 'https://deno.land/x/grammy_auto_retry@v2.0.2/mod.ts';
-import { apiThrottler } from 'https://deno.land/x/grammy_transformer_throttler@v1.2.1/mod.ts';
+// import { apiThrottler } from 'https://deno.land/x/grammy_transformer_throttler@v1.2.1/mod.ts';
 import MSG from '../constants/messages/index.ts';
 import { hydrateReply } from 'https://deno.land/x/grammy_parse_mode@1.10.0/mod.ts';
 import { hydrate } from 'https://deno.land/x/grammy_hydrate@v1.4.1/mod.ts';
@@ -30,11 +30,11 @@ bot.api.config.use(
     })
 );
 
-const throttler = apiThrottler({
-    global: globalConfig,
-    group: groupConfig,
-    out: outConfig,
-});
+// const throttler = apiThrottler({
+//     global: globalConfig,
+//     group: groupConfig,
+//     out: outConfig,
+// });
 
 try {
     await bot.api.setMyCommands([], { scope: { type: 'all_group_chats' } });
@@ -53,7 +53,7 @@ try {
 bot.use(hydrateReply);
 bot.use(hydrate());
 bot.api.config.use(hydrateFiles(bot.token));
-bot.api.config.use(throttler);
+// bot.api.config.use(throttler);
 bot.api.config.use(parseMode('HTML')); // Sets default parse_mode for ctx.reply
 
 // Session
