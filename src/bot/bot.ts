@@ -14,7 +14,7 @@ import { autoRetry } from 'https://deno.land/x/grammy_auto_retry@v2.0.2/mod.ts';
 import MSG from '../constants/messages/index.ts';
 import { hydrateReply } from 'https://deno.land/x/grammy_parse_mode@1.10.0/mod.ts';
 import { hydrate } from 'https://deno.land/x/grammy_hydrate@v1.4.1/mod.ts';
-import { globalConfig, groupConfig, outConfig } from './config/limitsConfig.ts';
+// import { globalConfig, groupConfig, outConfig } from './config/limitsConfig.ts';
 import { parseMode } from 'https://deno.land/x/grammy_parse_mode@1.10.0/transformer.ts';
 import { hydrateFiles } from 'https://deno.land/x/grammy_files@v1.1.1/mod.ts';
 import { COMMANDS } from './commands/commands.ts';

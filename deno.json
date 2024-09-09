@@ -1,9 +1,9 @@
 {
-    "tasks": {
-        "dev": "DENO_ENV=development deno run --watch --allow-env --allow-net --allow-read src/main.ts",
-        "start": "DENO_ENV=production deno run --allow-env --allow-net --allow-read src/main.ts"
-    },
-	"lint": {
+  "tasks": {
+    "dev": "DENO_ENV=development deno run --watch --allow-env --allow-net --allow-read src/main.ts",
+    "start": "DENO_ENV=production deno run --allow-env --allow-net --allow-read src/main.ts"
+  },
+  "lint": {
     "include": ["src/"],
     "exclude": ["src/testdata/", "src/fixtures/**/*.ts"],
     "rules": {
@@ -11,5 +11,9 @@
       "include": ["ban-untagged-todo"],
       "exclude": ["no-unused-vars", "no-explicit-any"]
     }
+  },
+  "imports": {
+    "@std/uuid": "jsr:@std/uuid@^1.0.3",
+    "date-fns": "npm:date-fns@^3.6.0"
   }
 }
