@@ -20,6 +20,7 @@ import { hydrateFiles } from 'https://deno.land/x/grammy_files@v1.1.1/mod.ts';
 import { COMMANDS } from './commands/commands.ts';
 import { conversations } from 'https://deno.land/x/grammy_conversations@v1.2.0/mod.ts';
 import LOGGER from '../helpers/logger.ts';
+import { timeNowFormat } from "../utils/utils.ts";
 
 const bot = new Bot<ParseModeFlavor<BotContext>>(ENV_VARIABLES.TOKEN);
 
@@ -93,7 +94,7 @@ export const groupChat = bot.chatType(['group', 'supergroup']);
 privateChat.command('start', async (ctx) => {
     const { user } = await ctx.getAuthor();
 
-    await ctx.reply(`Hello ${user.first_name}!`);
+    await ctx.reply(`Hello ${user.first_name}! ${timeNowFormat()}`);
 });
 
 //CRASH HANDLER
